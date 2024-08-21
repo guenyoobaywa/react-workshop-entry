@@ -1,3 +1,5 @@
+import "./Todo.css";
+
 interface ITodo {
   name: string;
   completed: boolean;
@@ -5,16 +7,15 @@ interface ITodo {
 }
 
 interface TodoProps {
-  className?: string;
   name: ITodo["name"];
   completed: ITodo["completed"];
   id: ITodo["id"];
   completeTodo: (id: string) => void;
 }
 
-const Todo = ({ name, className, completed, id, completeTodo }: TodoProps) => {
+const Todo = ({ name, completed, id, completeTodo }: TodoProps) => {
   return (
-    <div className={className}>
+    <div className="todo">
       <div>
         {name} {completed ? "✅" : "🔖"}
       </div>

@@ -1,4 +1,5 @@
 import { ITodo, Todo } from "./Todo";
+import "./TodoBlock.css";
 
 interface TodoBlockProps {
   status: "abgeschlossen" | "offen";
@@ -11,7 +12,7 @@ const TodoBlock = ({ status, todos, completeTodo }: TodoBlockProps) => {
 
   return (
     <section key={status}>
-      <ul>
+      <ul className="todo-block">
         {todos
           .filter((todo) => (isComplete ? todo.completed : !todo.completed))
           .map((todo) => (
