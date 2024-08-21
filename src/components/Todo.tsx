@@ -1,6 +1,7 @@
 interface ITodo {
   name: string;
   completed: boolean;
+  id: string;
 }
 
 interface TodoProps {

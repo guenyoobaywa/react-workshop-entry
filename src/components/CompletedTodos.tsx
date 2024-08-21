@@ -1,19 +1,22 @@
 import { Todo } from "./Todo";
-import mockTodos from "../data/todos.mock.json";
-import React from "react";
+import React, { useEffect } from "react";
+import { useTodos } from "./use-todos.hooks";
 
 const CompletedTodos = () => {
+  const { myTodos, completeTodo } = useTodos();
+
+  useEffect(() => {
+    console.log(myTodos);
+  }, [myTodos]);
+
   return (
     <section>
       <h3>Abgeschlossene Todos</h3>
       <ul>
-        {mockTodos.map((mockTodo) => (
-          <React.Fragment key={mockTodo.name}>
-            <Todo name={mockTodo.name} completed={mockTodo.completed} />
-            <button
-              type="button"
-              onClick={() => (mockTodo.completed = !mockTodo.completed)}
-            >
+        {myTodos.map((todo) => (
+          <React.Fragment key={todo.id}>
+            <Todo name={todo.name} completed={todo.completed} />
+            <button type="button" onClick={() => completeTodo(todo.id)}>
               abschließen
             </button>
           </React.Fragment>
