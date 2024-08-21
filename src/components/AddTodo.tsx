@@ -1,9 +1,10 @@
 import { InputButton } from "./InputButton";
-import { useTodos } from "./use-todos.hooks";
 
-const AddTodo = () => {
-  const { addTodo } = useTodos();
+interface AddTodoProps {
+  addTodo: (input: string) => void;
+}
 
+const AddTodo = ({ addTodo }: AddTodoProps) => {
   const inputChangeHandler = (inputValue: string) => {
     addTodo(inputValue);
   };

@@ -10,7 +10,6 @@ const useTodos = () => {
 
   useEffect(() => {
     setLocalStorageTodos(myTodos);
-    console.log("useEffect", myTodos);
   }, [myTodos, setMyTodos]);
 
   // 1. funktion um neues Todo zu erstellen
